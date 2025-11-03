@@ -1,6 +1,7 @@
 #pydantics data validation file
 
 from pydantic import BaseModel, Field
+from typing import Optional
 
 class TodoAdd(BaseModel):
     title : str = Field(...,max_length=20)
@@ -11,6 +12,13 @@ class TodoAdd(BaseModel):
 class TodoUpdate(BaseModel):
     description: str = Field(..., max_length=50)
     complete: bool = Field(...)
-   
+
+class CreateUser(BaseModel):
+    username: str
+    email: Optional[str] = None
+    first_name: str
+    last_name: str
+    password: str
+
 
 
