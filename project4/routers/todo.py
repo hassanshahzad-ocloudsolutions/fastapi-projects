@@ -27,8 +27,7 @@ async def get_all_todos(db: Session = Depends(get_db)):
     return db.query(Todo).all()
 
 
-      
-
+    
 @router_todo.get("/user")
 async def get_all_todo_by_user(user: dict = Depends(get_current_user), db:Session = Depends(get_db)):
     if user is None:

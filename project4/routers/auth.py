@@ -61,6 +61,7 @@ async def create_new_user(user:CreateUser, db:Session=Depends(get_db)):
     create_user_model.last_name = user.last_name #type: ignore
     create_user_model.hashed_password = get_hash_password(user.password) #type: ignore
     create_user_model.is_active = True #type: ignore
+    create_user_model.phone_number = user.phone_number
 
     db.add(create_user_model)
     db.commit()

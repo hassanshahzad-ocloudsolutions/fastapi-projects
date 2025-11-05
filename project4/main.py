@@ -4,7 +4,7 @@ import sys
 sys.path.append("..")
 
 from fastapi import FastAPI, Depends
-from routers import auth, todo, users
+from routers import auth, todo, users, address
 import models
 from orm import engine
 from company import companyapis, dependencies
@@ -23,7 +23,7 @@ app.include_router(companyapis.router_company,
                     responses= {418:{"description":"Internal use only"}})
 
 app.include_router(users.router_users)
-
+app.include_router(address.router_address)
 
 
 
